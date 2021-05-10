@@ -6,11 +6,13 @@ const { extname } = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
 const MysqlStore = require('express-mysql-session')
+const passport = require('passport')
 
 const { database} = require('./keys')
 
 // Initializations
 const app = express()
+require('./lib/passport')
 
 // Settings 
 app.set('port', process.env.PORT || 4000)
@@ -35,6 +37,8 @@ app.use(flash())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Global variables
 app.use((req, res, next) => {

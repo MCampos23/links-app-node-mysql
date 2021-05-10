@@ -34,7 +34,7 @@ router.get("/delete/:id", async(req, res) =>{
 router.get("/edit/:id", async(req, res) =>{
    const {id} = req.params
    const link = await pool.query('SELECT * FROM links WHERE ID = ?', [id])
-   console.log(link)
+   console.log(link[0])
    res.render('links/edit', {link: link[0]})
 })
 
