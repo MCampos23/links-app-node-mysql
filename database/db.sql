@@ -1,6 +1,6 @@
-CREATE DATABASE database_links;
+CREATE DATABASE db_links;
 
-USE database_links;
+USE db_links;
 
 -- USERS TABLE --
 CREATE TABLE users(
